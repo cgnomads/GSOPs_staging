@@ -12,8 +12,8 @@
   <tool name="download_gsops_sample_data" label="Download Sample Data" icon="MISC_present">
     <script scriptType="python"><![CDATA[from gsops.sample_data import download
 
-download_data_file_path = hou.text.expandString("$GSOPS/data/splats/.download_data.txt")
-output_dir = hou.text.expandString("$GSOPS/data/splats")
+download_data_file_path = hou.text.expandString("$GSOPS/data/.download_data.txt")
+output_dir = hou.text.expandString("$GSOPS/data")
 
 download(download_data_file_path, output_dir)
 ]]></script>
