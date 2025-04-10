@@ -42,7 +42,7 @@ def download(download_data_file_path, output_dir):
     """"Download files from a list of URLs provided in a file."""
     if not os.path.exists(download_data_file_path):
         print(f"File not found: {download_data_file_path}. Exiting download process.")
-        return
+        return False, True
     
     os.makedirs(output_dir, exist_ok=True)
 
@@ -64,8 +64,9 @@ def download(download_data_file_path, output_dir):
     total = len(download_data)
     if total == 0:
         print("Nothing to download.")
-        return
+        return False, False
 
+    # TODO: explore download without locking UI
     with hou.InterruptableOperation("Downloading Files", long_operation_name="Downloading...", open_interrupt_dialog=True) as operation:
         for i, (rel_path, url, dest_path) in enumerate(download_data):
             os.makedirs(os.path.dirname(dest_path), exist_ok=True)
@@ -81,3 +82,4 @@ def download(download_data_file_path, output_dir):
         operation.updateLongProgress(1.0, "All downloads complete.")
 
     print("Done.")
+    return True, True
