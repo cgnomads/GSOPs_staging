@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shelfDocument>
+  <!-- This file contains definitions of shelves, toolbars, and tools.
+ It should not be hand-edited when it is being used by the application.
+ Note, that two definitions of the same element are not allowed in
+ a single file. -->
+
+  <toolshelf name="gsops_shelf" label="GSOPs">
+    <memberTool name="download_gsops_sample_data"/>
+  </toolshelf>
+
+  <tool name="download_gsops_sample_data" label="Download Sample Data" icon="MISC_present">
+    <script scriptType="python"><![CDATA[from gsops.sample_data import download
+
+download_data_file_path = hou.text.expandString("$GSOPS/data/splats/.download_data.txt")
+output_dir = hou.text.expandString("$GSOPS/data/splats")
+
+download(download_data_file_path, output_dir)
+]]></script>
+  </tool>
+</shelfDocument>
