@@ -1,4 +1,7 @@
 # GSOPs 2.5 (Gaussian Splatting Operators) for SideFX Houdini 20.5
+
+TEST!
+
 _Now available under the **Houdini Commercial** license._
 
 [Watch the GSOPs 2.5 Sizzle Reel](https://youtu.be/9GcNrg5zAKk)
